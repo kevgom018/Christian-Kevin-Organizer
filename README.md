@@ -8,3 +8,9 @@ There should also be recommendations for quizzes/tests on what sources to consul
 Essentially a to-do list that develops itself over the coming day, week, and month.
 There should also be a yearly goals section to give the user the means to achieve milestones set by them, or suggested by the program.
 Suggestions could be concrete steps towards abstract goals (ie: if the user has as a goal to be healthy, the program can suggest nearby gyms every so often, and foods to buy).
+
+*Systems*
+
+-Getting the info from moodle, google, outlook, etc
+-Proccessing when to complete tasks based on complexity and deadlines
+-Suggest concrete steps for user set abstract goals

@@ -11,6 +11,6 @@ Suggestions could be concrete steps towards abstract goals (ie: if the user has 
 
 *Systems*
 
--Getting the info from moodle, google, outlook, etc
--Proccessing when to complete tasks based on complexity and deadlines
--Suggest concrete steps for user set abstract goals
+- Getting the info from moodle, google, outlook, etc
+- Proccessing when to complete tasks based on complexity and deadlines
+- Suggest concrete steps for user set abstract goals

@@ -64,8 +64,10 @@ def displayInfo():
 # **This function is the one that will later be used to analyze task complexities, where the AI action happens
 # TODO: Research the parameters and read documentation for the API
 def testSummarizer():
-    api = InferenceApi(repo_id = "gpt2", token = "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")
-    output = api(inputs = "What is the capital of Belgium?", )
+    file = open("kevinToken.txt", "r")
+    token = file.readline()
+    api = InferenceApi(repo_id = "gpt2", token = token)
+    output = api(inputs = "What is the capital of Belgium?")
     print(output[0]["generated_text"])
 
 # **Here we will put together all the segments of our code and later possibly move to different files

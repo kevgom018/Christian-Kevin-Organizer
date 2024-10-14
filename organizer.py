@@ -3,10 +3,14 @@
 # import email
 # from email.header import decode_header
 from transformers import pipeline
-from huggingface_hub import InferenceApi
+from huggingface_hub import InferenceClient
 
 # Test input for Hugging Face
-question = "What is the capital of Belgium?"
+eventQ = "What is the event?"
+hostQ = "Who hosts the event?"
+dayQ = "What day is the event"
+timeQ = "At what time will the event occur?"
+message = "PandaHat Society invites you to the 18th Hackathon thursday at 11am."
 
 # This class represents the user and uses their info to access email information
 # TODO: Add necessary login info for all services to be searched
@@ -63,17 +67,21 @@ def displayInfo():
 # **This function is the one that will later be used to analyze task complexities, where the AI action happens**
 # TODO: Research the parameters and read documentation for the API
 def testSummarizer():
-    file = open("kevinToken.txt", "r")
+    file = open("APIToken.txt", "r")
     token = file.readline()
-    api = InferenceApi(repo_id = "gpt2", token = token)
-    output = api(inputs = "What is the capital of Belgium?")
-    print(output[0]["generated_text"])
+    inference = InferenceClient(token = token)
+    event = inference.question_answering(question = eventQ, context = message)
+    host = inference.question_answering(question = hostQ, context = message)
+    day = inference.question_answering(question = dayQ, context = message)
+    time = inference.question_answering(question = timeQ, context = message)
+    eventSummary = event.answer + " on " + day.answer + " at " + time.answer + " by " + host.answer
+    print(eventSummary)
 
 # **Here we will put together all the segments of our code and later possibly move to different files
 def main():
-    user1 = makeUser()
-    readEmails(user1)
-    displayInfo()
+    # user1 = makeUser()
+    # readEmails(user1)
+    # displayInfo()
     testSummarizer()
 
 main()

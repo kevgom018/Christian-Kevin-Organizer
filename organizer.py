@@ -1,4 +1,3 @@
-# define services (Gmail, Outlook, Moodle, Etc.)
 
 # The commented imports are from attempts at reading emails
 # import imaplib
@@ -13,6 +12,7 @@ question = "What is the capital of Belgium?"
 # This class represents the user and uses their info to access email information
 # TODO: Add necessary login info for all services to be searched
 # TODO: Add the functionality for reading emails, going through moodle, displaying with tkinter (or alternatives) and correctly process task complexity
+# TODO: services (Gmail, Outlook, Moodle, Etc.)
 class User:
     name = ""
     email = ""
@@ -61,7 +61,7 @@ def summarizeEmails():
 def displayInfo():
     pass
 
-# **This function is the one that will later be used to analyze task complexities, where the AI action happens
+# **This function is the one that will later be used to analyze task complexities, where the AI action happens**
 # TODO: Research the parameters and read documentation for the API
 def testSummarizer():
     file = open("kevinToken.txt", "r")

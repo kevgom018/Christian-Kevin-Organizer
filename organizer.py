@@ -18,6 +18,8 @@ noEvent = "There will be no chemistry test this sunday at 6:00pm." # No event sh
 # TODO: Add the functionality for reading emails, going through moodle, displaying with tkinter (or alternatives) and correctly process task complexity
 # TODO: services (Gmail, Outlook, Moodle, Etc.)
 class User:
+    tasks = []
+    events = []
     name = ""
     email = ""
     password = ""
@@ -72,6 +74,11 @@ def testSummarizer():
     token = file.readline()
     inference = InferenceClient(token = token)
     classifier = pipeline("text-classification", model = "roberta-large-mnli")
+    analyzer = pipeline("text2text-generation", model = "google/flan-t5-large")
+    # task = "This will come from moodle or the emails"
+    # complexity = analyzer("On a scale from 1 to 10, how complex is the following human task taking into account the time needed for completion: " + task, max_length = 50)
+    # timeForTask = analyzer("Estimate the time necessary, in hours, to complete the following task: " + task, max_length = 50)
+    # print(complexity[0]["generated_text"])
     eventRecognized = classifier(message + " " + isThereEvent)
     if eventRecognized[0]["label"] == "ENTAILMENT":
         print("Event detected.\nSummary:")
